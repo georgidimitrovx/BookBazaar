@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Button from '@mui/material/Button';
 
 interface Forecast {
     date: string;
@@ -32,14 +33,18 @@ function App() {
                         <td>{forecast.date}</td>
                         <td>{forecast.temperatureC}</td>
                         <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
+                        <td>{forecast.summary}</td> 
                     </tr>
                 )}
+                
             </tbody>
         </table>;
 
     return (
         <div>
+            <Button variant="contained" color="primary">
+                Hello World
+            </Button>
             <h1 id="tabelLabel">Weather forecast</h1>
             <p>This component demonstrates fetching data from the server.</p>
             {contents}
