@@ -1,61 +1,42 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Button from '@mui/material/Button';
-
-interface Forecast {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
-}
+import axios from 'axios';
+import Login from './Login';
+import Home from './Home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-    const [forecasts, setForecasts] = useState<Forecast[]>();
+    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
 
     useEffect(() => {
-        populateWeatherData();
+        authenticateUser();
     }, []);
 
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tabelLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td> 
-                    </tr>
-                )}
-                
-            </tbody>
-        </table>;
-
     return (
-        <div>
-            <Button variant="contained" color="primary">
-                Hello World
-            </Button>
-            <h1 id="tabelLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </BrowserRouter>
     );
-
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        setForecasts(data);
-    }
 }
+
+// Define the authenticateUser function inside or import it from another file
+const authenticateUser = async () => {
+    // todo use register login with credentials
+
+    try {
+        const response = await axios.post('https://localhost:7106/api/Auth/token', {
+            Email: 'admin', // These should come from user input
+            Password: 'password', // These should come from user input
+        });
+        const { token } = response.data;
+        localStorage.setItem('token', token); // Consider security implications
+        console.log('Authentication successful, token stored: ', token);
+    } catch (error) {
+        console.error("Authentication failed:", error);
+    }
+};
 
 export default App;
