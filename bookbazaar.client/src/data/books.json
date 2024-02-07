@@ -1,0 +1,104 @@
+{
+  "books": [
+    {
+      "Id": 1,
+      "Title": "The Great Gatsby",
+      "Description": "A classic novel of American literature, depicting the Jazz Age and the pursuit of the American Dream.",
+      "Author": "F. Scott Fitzgerald",
+      "Genre": "Classic",
+      "Price": 15.99,
+      "ISBN": "978-0743273565",
+      "Inventory": 100
+    },
+    {
+      "Id": 2,
+      "Title": "1984",
+      "Description": "A dystopian novel exploring the dangers of totalitarianism and pervasive government surveillance.",
+      "Author": "George Orwell",
+      "Genre": "Science Fiction",
+      "Price": 12.99,
+      "ISBN": "978-0451524935",
+      "Inventory": 150
+    },
+    {
+      "Id": 3,
+      "Title": "To Kill a Mockingbird",
+      "Description": "A novel about the experiences of racism and injustice in the Deep South through the eyes of a young girl.",
+      "Author": "Harper Lee",
+      "Genre": "Classic",
+      "Price": 8.99,
+      "ISBN": "978-0061120084",
+      "Inventory": 200
+    },
+    {
+      "Id": 4,
+      "Title": "The Catcher in the Rye",
+      "Description": "A story about the complexities of adolescence, capturing the challenges of teenage angst and alienation.",
+      "Author": "J.D. Salinger",
+      "Genre": "Fiction",
+      "Price": 10.99,
+      "ISBN": "978-0316769488",
+      "Inventory": 120
+    },
+    {
+      "Id": 5,
+      "Title": "Pride and Prejudice",
+      "Description": "A romantic novel of manners that explores the issues of marriage, morality, and misconceptions.",
+      "Author": "Jane Austen",
+      "Genre": "Classic",
+      "Price": 9.99,
+      "ISBN": "978-1503290563",
+      "Inventory": 130
+    },
+    {
+      "Id": 6,
+      "Title": "The Hobbit",
+      "Description": "A fantasy novel that follows the quest of home-loving Bilbo Baggins to win a share of the treasure guarded by a dragon.",
+      "Author": "J.R.R. Tolkien",
+      "Genre": "Fantasy",
+      "Price": 14.99,
+      "ISBN": "978-0547928227",
+      "Inventory": 110
+    },
+    {
+      "Id": 7,
+      "Title": "Harry Potter and the Sorcerer's Stone",
+      "Description": "The first book in the Harry Potter series, introducing Harry Potter, a young wizard, and his magical adventures.",
+      "Author": "J.K. Rowling",
+      "Genre": "Fantasy",
+      "Price": 22.99,
+      "ISBN": "978-0590353427",
+      "Inventory": 300
+    },
+    {
+      "Id": 8,
+      "Title": "The Alchemist",
+      "Description": "A philosophical book that tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure.",
+      "Author": "Paulo Coelho",
+      "Genre": "Fiction",
+      "Price": 16.99,
+      "ISBN": "978-0062315007",
+      "Inventory": 180
+    },
+    {
+      "Id": 9,
+      "Title": "The Lord of the Rings",
+      "Description": "An epic fantasy novel that follows the quest to destroy the One Ring, which was crafted by the dark lord Sauron.",
+      "Author": "J.R.R. Tolkien",
+      "Genre": "Fantasy",
+      "Price": 35.99,
+      "ISBN": "978-0618640157",
+      "Inventory": 90
+    },
+    {
+      "Id": 10,
+      "Title": "Brave New World",
+      "Description": "A dystopian novel that anticipates developments in reproductive technology, sleep-learning, psychological manipulation, and social conditioning.",
+      "Author": "Aldous Huxley",
+      "Genre": "Science Fiction",
+      "Price": 13.99,
+      "ISBN": "978-0060850524",
+      "Inventory": 160
+    }
+  ]
+}

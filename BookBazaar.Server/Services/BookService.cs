@@ -6,6 +6,7 @@ namespace BookBazaar.Server.Services
     public interface IBookService
     {
         Task<IEnumerable<Book>> GetAllBooksAsync();
+        Task<IEnumerable<Book>> GetAllBooksByCategoryAsync(string category);
         Task<Book> GetBookByIdAsync(int id);
         Task<Book> CreateBookAsync(Book book);
         Task<Book> UpdateBookAsync(Book book);
@@ -25,6 +26,8 @@ namespace BookBazaar.Server.Services
         }
 
         public async Task<IEnumerable<Book>> GetAllBooksAsync() => await _bookRepository.GetAllAsync();
+        public async Task<IEnumerable<Book>> GetAllBooksByCategoryAsync(string category)
+            => await _bookRepository.GetAllByCategoryAsync(category);
 
         public async Task<Book> GetBookByIdAsync(int id) => await _bookRepository.GetByIdAsync(id);
 
@@ -34,7 +37,7 @@ namespace BookBazaar.Server.Services
 
         public async Task<Book> DeleteBookAsync(int id) => await _bookRepository.DeleteAsync(id);
 
-        public async Task<IEnumerable<Book>> FindByTitleAsync(string title) => 
+        public async Task<IEnumerable<Book>> FindByTitleAsync(string title) =>
             await _bookRepository.FindByTitleAsync(title);
 
         public async Task<IEnumerable<Book>> FindByAuthorAsync(string author) =>

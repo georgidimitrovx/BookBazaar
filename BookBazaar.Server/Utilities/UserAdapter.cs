@@ -3,7 +3,7 @@
 namespace BookBazaar.Server.Utilities
 {
     public class UserAdapter
-    { 
+    {
         public User Adapt(UserRegistrationDto dto)
         {
             // Create a new User object and populate it with data from the UserLoginDto

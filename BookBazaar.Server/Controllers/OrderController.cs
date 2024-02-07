@@ -1,6 +1,5 @@
 ﻿using BookBazaar.Server.Models;
 using BookBazaar.Server.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookBazaar.Server.Controllers

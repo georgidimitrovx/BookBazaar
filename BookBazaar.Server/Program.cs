@@ -1,6 +1,5 @@
 using BookBazaar.Server.Data;
 using BookBazaar.Server.Services;
-using BookBazaar.Server.Utilities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

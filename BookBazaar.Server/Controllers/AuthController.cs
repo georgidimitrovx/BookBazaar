@@ -1,5 +1,4 @@
-﻿using BookBazaar.Server.Data;
-using BookBazaar.Server.Models;
+﻿using BookBazaar.Server.Models;
 using BookBazaar.Server.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -7,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-[Route("api/[controller]")] 
+[Route("api/[controller]")]
 [ApiController]
 public class AuthController : ControllerBase
 {

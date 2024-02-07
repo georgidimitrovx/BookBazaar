@@ -1,5 +1,4 @@
 ﻿using BookBazaar.Server.Models;
-using Humanizer.Localisation;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookBazaar.Server.Data
@@ -7,6 +6,7 @@ namespace BookBazaar.Server.Data
     public interface IBookRepository
     {
         Task<IEnumerable<Book>> GetAllAsync();
+        Task<IEnumerable<Book>> GetAllByCategoryAsync(string category);
         Task<Book> GetByIdAsync(int id);
         Task<Book> AddAsync(Book book);
         Task<Book> UpdateAsync(Book book);
@@ -26,6 +26,18 @@ namespace BookBazaar.Server.Data
         }
 
         public async Task<IEnumerable<Book>> GetAllAsync() => await _context.Books.ToListAsync();
+
+        public async Task<IEnumerable<Book>> GetAllByCategoryAsync(string category)
+        {
+            var books = await _context.Books
+                .Where(book => book.Category == category)
+                .ToListAsync();
+
+            books = books.OrderBy(_ => Guid.NewGuid()).ToList();
+            books = books[0..10];
+
+            return books;
+        }
 
         public async Task<Book> GetByIdAsync(int id) => await _context.Books.FindAsync(id);
 

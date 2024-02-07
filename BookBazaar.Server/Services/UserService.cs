@@ -1,7 +1,5 @@
 ﻿using BookBazaar.Server.Data;
 using BookBazaar.Server.Models;
-using BookBazaar.Server.Utilities;
-using Microsoft.EntityFrameworkCore;
 
 public interface IUserService
 {

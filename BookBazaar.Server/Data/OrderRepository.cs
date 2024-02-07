@@ -1,6 +1,4 @@
 ﻿using BookBazaar.Server.Models;
-using Humanizer.Localisation;
-using Microsoft.EntityFrameworkCore;
 
 namespace BookBazaar.Server.Data
 {

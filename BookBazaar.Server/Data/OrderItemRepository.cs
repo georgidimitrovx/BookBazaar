@@ -1,6 +1,4 @@
 ﻿using BookBazaar.Server.Models;
-using Humanizer.Localisation;
-using Microsoft.EntityFrameworkCore;
 
 namespace BookBazaar.Server.Data
 {
@@ -21,7 +19,7 @@ namespace BookBazaar.Server.Data
             _context = context;
         }
 
-        public async Task<OrderItem> GetByIdAsync(int id) => 
+        public async Task<OrderItem> GetByIdAsync(int id) =>
             await _context.OrderItems.FindAsync(id);
 
         public async Task<OrderItem> AddAsync(OrderItem orderItem)

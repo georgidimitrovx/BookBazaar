@@ -1,18 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using BookBazaar.Server.Data;
 using BookBazaar.Server.Models;
-using Microsoft.AspNetCore.Authorization;
 using BookBazaar.Server.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookBazaar.Server.Controllers
 {
-    [Authorize]
+    //[Authorize] // todo add again
     [Route("api/[controller]")]
     [ApiController]
     public class BookController : ControllerBase
@@ -25,9 +17,9 @@ namespace BookBazaar.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> Get()
+        public async Task<ActionResult> Get([FromQuery] string category)
         {
-            return Ok(await _bookService.GetAllBooksAsync());
+            return Ok(await _bookService.GetAllBooksByCategoryAsync(category));
         }
 
         [HttpGet("{id}")]
