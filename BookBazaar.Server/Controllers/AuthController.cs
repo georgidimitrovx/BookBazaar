@@ -11,13 +11,20 @@ using System.Text;
 public class AuthController : ControllerBase
 {
     private readonly IConfiguration _configuration;
-    private readonly UserService _userService;
+    private readonly IUserService _userService;
 
-    public AuthController(IConfiguration configuration, UserService userService)
+    public AuthController(IConfiguration configuration, IUserService userService)
     {
         _configuration = configuration;
         _userService = userService;
     }
+
+    //[HttpGet("verifyToken")]
+    //public IActionResult VerifyToken()
+    //{
+    //    return Ok("Token is valid");
+    //    // todo validate token method
+    //}
 
     [HttpPost("token")]
     public IActionResult GenerateToken([FromBody] UserCredentials credentials)
@@ -36,10 +43,10 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> RegisterAsync(UserRegistrationDto registrationDto)
     {
         // Validate the incoming data
-        if (!registrationDto.IsValid())
-        {
-            return BadRequest("Data invalid.");
-        }
+        //if (!registrationDto.IsValid())
+        //{
+        //    return BadRequest("Data invalid.");
+        //}
 
         // Check if the user already exists
         if (await _userService.ExistsAsync(registrationDto.Email))
@@ -56,17 +63,20 @@ public class AuthController : ControllerBase
             return BadRequest("User creation failed.");
         }
 
-        return Ok(new { message = "Registration successful" });
+        // Generate a JWT token or another form of token
+        var token = GenerateJwtToken(user.Email);
+
+        return Ok(new { jwtToken = token, name = user.Name, email = user.Email });
     }
 
     [HttpPost("login")]
     public async Task<IActionResult> LoginAsync(UserLoginDto loginDto)
     {
         // Validate the incoming data
-        if (!loginDto.IsValid())
-        {
-            return BadRequest("Data invalid.");
-        }
+        //if (!loginDto.IsValid())
+        //{
+        //    return BadRequest("Data invalid.");
+        //}
 
         // Verify the user credentials
         var user = await _userService.GetUserByEmailAsync(loginDto.Email);
@@ -86,7 +96,7 @@ public class AuthController : ControllerBase
         // todo set token to user in db?
 
         // Return the token and user info
-        return Ok(new { token = token, userEmail = loginDto.Email });
+        return Ok(new { jwtToken = token, name = user.Name, email = user.Email });
     }
 
     private string GenerateJwtToken(string email)
