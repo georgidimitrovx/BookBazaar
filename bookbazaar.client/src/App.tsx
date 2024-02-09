@@ -4,6 +4,8 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import BookPage from "./pages/BookPage";
 import CartPage from "./pages/CartPage";
+import Checkout from "./pages/checkout/Checkout";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
     return (
@@ -14,6 +16,8 @@ function App() {
                 <Route path="/signUp" element={<SignUp />} />
                 <Route path="/book/:id" element={<BookPage />} />
                 <Route path="/cart" element={<CartPage />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/search" element={<SearchPage />} />
             </Routes>
         </BrowserRouter>
     );

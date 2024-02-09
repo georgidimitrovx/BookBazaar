@@ -10,5 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\assets\genres\" />
+    <Folder Include="src\pages\checkout\" />
   </ItemGroup>
 </Project>

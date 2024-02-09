@@ -16,18 +16,24 @@ namespace BookBazaar.Server.Controllers
             _bookService = bookService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Get([FromQuery] string category)
-        {
-            return Ok(await _bookService.GetAllBooksByCategoryAsync(category));
-        }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> Get(int id)
         {
             var book = await _bookService.GetBookByIdAsync(id);
             if (book == null) return NotFound();
             return Ok(book);
+        }
+
+        [HttpGet("category/{category}")]
+        public async Task<ActionResult> GetCategory(string category)
+        {
+            return Ok(await _bookService.GetAllBooksByCategoryAsync(category));
+        }
+
+        [HttpGet("search/{value}")]
+        public async Task<ActionResult> GetSearch(string value)
+        {
+            return Ok(await _bookService.FindByTitleAsync(value));
         }
 
         [HttpPost]

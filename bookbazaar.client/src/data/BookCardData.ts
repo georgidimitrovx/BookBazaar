@@ -3,10 +3,10 @@ interface BookCardData {
     id: number,
     title: string;
     description: string;
-    //author: string,
+    author: string,
     //genre: string,
-    //price: number,
+    price: number,
     //isbn: string,
-    //inventory: number,
+    inventory: number,
     coverImageUrl: string,
 }

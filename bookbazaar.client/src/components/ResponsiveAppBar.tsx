@@ -51,8 +51,10 @@ function ResponsiveAppBar() {
 
     const getCartCount = () => {
         var cartItems = localStorage.getItem("cart");
-        cartItems = cartItems?.split(";");
-        return cartItems?.length;
+        var cartItemsSplit = cartItems?.split(";");
+        cartItemsSplit = cartItemsSplit?.filter(item => item !== "");
+        const distinctArray = [...new Set(cartItemsSplit)];
+        return distinctArray?.length;
     }
 
     return (
