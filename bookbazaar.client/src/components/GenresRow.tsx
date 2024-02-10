@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardMedia, Container, Grid, Link, Typography } from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Grid, Link, Typography } from "@mui/material";
 import IconFiction from '../assets/genres/genre_fiction.png';
 import IconNonfiction from '../assets/genres/genre_nonfiction.png';
 import IconFantasy from '../assets/genres/genre_fantasy.png';
@@ -10,7 +10,7 @@ function GenresRow() {
         <Box sx={{ overflowX: 'auto', width: '100%', marginTop: 2 }}>
             <Grid container spacing={2} sx={{ display: 'flex', flexWrap: 'nowrap' }}>
                 <Grid item sx={{ marginY: 1 }}>
-                    <Link href="./genre/fiction">
+                    <Link href="./genre?value=fiction">
                         <Card sx={{ maxWidth: 125 }}>
                             <CardMedia
                                 component="img"
@@ -26,7 +26,7 @@ function GenresRow() {
                     </Link>
                 </Grid>
                 <Grid item sx={{ marginY: 1 }}>
-                    <Link href="./genre/nonfiction">
+                    <Link href="./genre?value=nonfiction">
                         <Card sx={{ maxWidth: 125 }}>
                             <CardMedia
                                 component="img"
@@ -42,7 +42,7 @@ function GenresRow() {
                     </Link>
                 </Grid>
                 <Grid item sx={{ marginY: 1 }}>
-                    <Link href="./genre/fantasy">
+                    <Link href="./genre?value=fantasy">
                         <Card sx={{ maxWidth: 125 }}>
                             <CardMedia
                                 component="img"
@@ -58,7 +58,7 @@ function GenresRow() {
                     </Link>
                 </Grid>
                 <Grid item sx={{ marginY: 1 }}>
-                    <Link href="./genre/mystery">
+                    <Link href="./genre?value=mystery">
                         <Card sx={{ maxWidth: 125 }}>
                             <CardMedia
                                 component="img"
@@ -74,7 +74,7 @@ function GenresRow() {
                     </Link>
                 </Grid>
                 <Grid item sx={{ marginY: 1 }}>
-                    <Link href="./genre/Romance">
+                    <Link href="./genre?value=Romance">
                         <Card sx={{ maxWidth: 125 }}>
                             <CardMedia
                                 component="img"

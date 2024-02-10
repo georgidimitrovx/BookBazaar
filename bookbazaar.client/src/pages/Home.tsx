@@ -1,4 +1,4 @@
-import { Box, Button, Container, Icon, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import SearchField from "../components/Search";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import { Card, CardMedia, Grid, Link } from '@mui/material';
+import { getEndpoint } from '../Helpers';
 interface CardsContainerProps {
     category: string;
 }
@@ -9,7 +10,7 @@ const CardsContainer: React.FC<CardsContainerProps> = ({ category }) => {
     const [cardsData, setCardsData] = useState<BookCardData[]>([]);
 
     useEffect(() => {
-        fetch('https://localhost:7106/api/Book/category/' + category)
+        fetch(getEndpoint() + 'api/Book/category/' + category)
             .then(response => response.json())
             .then((data: BookCardData[]) => setCardsData(data))
             .catch(error => console.error('Error fetching data:', error));

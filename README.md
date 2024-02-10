@@ -2,6 +2,12 @@
 
 ## Development
 
+### Links
+
+- Live website https://bookbazaarserver20240206094222.azurewebsites.net/
+- Trello https://trello.com/b/1k7otVhD/bookbazaar
+- LindedIn https://www.linkedin.com/in/georgidimitrovx/
+
 ### Description
 
 BookBazaar is an online bookstore designed to manage book inventories, user orders, and data analytics.

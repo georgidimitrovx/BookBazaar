@@ -9,9 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("ReactClient", builder =>
+    options.AddPolicy("LocalReactClient", builder =>
     {
         builder.WithOrigins("https://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+
+    options.AddPolicy("AzureReactClient", builder =>
+    {
+        builder.WithOrigins("https://bookbazaarserver20240206094222.azurewebsites.net")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -59,7 +66,8 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 
 var app = builder.Build();
 
-app.UseCors("ReactClient");
+app.UseCors("LocalReactClient");
+app.UseCors("AzureReactClient");
 
 app.UseDefaultFiles();
 app.UseStaticFiles();

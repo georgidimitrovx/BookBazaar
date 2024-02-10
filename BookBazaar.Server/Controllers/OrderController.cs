@@ -30,7 +30,7 @@ namespace BookBazaar.Server.Controllers
             return CreatedAtAction(nameof(Get), new { id = createdOrder.Id }, createdOrder);
         }
 
-        [HttpPost]
+        [HttpPost("item")]
         public async Task<ActionResult<Order>> Post([FromBody] OrderItem orderItem)
         {
             var createdOrderItem = await _orderService.CreateOrderItemAsync(orderItem);

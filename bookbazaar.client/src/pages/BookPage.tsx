@@ -1,9 +1,9 @@
-import { Alert, Box, Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from "@mui/material";
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
-import AlertDialog from "../components/AlertDialog";
+import { getEndpoint } from "../Helpers";
 
 interface Book {
     id: number,
@@ -28,7 +28,7 @@ export default function BookPage() {
     const [openDialog, setOpenDialog] = useState(false);
 
     useEffect(() => {
-        fetch('https://localhost:7106/api/Book/' + id, {
+        fetch(getEndpoint() + 'api/Book/' + id, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,9 +52,15 @@ export default function BookPage() {
             return;
         }
 
-        var cart = localStorage.getItem("cart");
-        cart += book?.id + ";";
-        localStorage.setItem("cart", cart);
+        if (book) {
+            var cart = localStorage.getItem("cart");
+            if (cart === undefined || cart === null)
+                cart = "";
+            cart += book.id + ";";
+            if (cart)
+                localStorage.setItem("cart", cart);
+        }
+
         //localStorage.setItem("cart", cart != null ? cart : "" + (book !== undefined ? book?.id : ""));
         //console.log(localStorage.getItem("cart"));
     };

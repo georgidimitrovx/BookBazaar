@@ -36,6 +36,12 @@ namespace BookBazaar.Server.Controllers
             return Ok(await _bookService.FindByTitleAsync(value));
         }
 
+        [HttpGet("genre/{value}")]
+        public async Task<ActionResult> GetGenre(string value)
+        {
+            return Ok(await _bookService.FindByGenreAsync(value));
+        }
+
         [HttpPost]
         public async Task<ActionResult<Book>> Post([FromBody] Book book)
         {

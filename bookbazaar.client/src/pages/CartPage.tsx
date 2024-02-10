@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useEffect, useState } from "react";
 import React from "react";
+import { getEndpoint } from "../Helpers";
+
 interface BookItemArray {
     [key: string]: BookCardData;
 }
@@ -44,7 +46,7 @@ export default function CartPage() {
         const fetchData = async () => {
             for (let key in itemArray) {
                 const bookData: BookCardData = itemArray[key];
-                await fetch('https://localhost:7106/api/Book/' + bookData.id)
+                await fetch(getEndpoint() + 'api/Book/' + bookData.id)
                     .then(response => response.json())
                     .then((data: BookCardData) => {
                         itemArray[key].author = data.author;
@@ -62,6 +64,7 @@ export default function CartPage() {
                 const book: BookCardData = itemArray[key];
                 totalSum += book.price * book.inventory;
             }
+            totalSum = Math.round(totalSum * 100) / 100;
             setTotalPrice(totalSum);
 
         };

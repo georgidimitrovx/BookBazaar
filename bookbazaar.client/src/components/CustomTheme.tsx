@@ -1,5 +1,5 @@
 // theme.js
-import { Palette } from '@mui/icons-material';
+//import { Palette } from '@mui/icons-material';
 import { createTheme } from '@mui/material/styles';
 
 const customTheme = createTheme({
